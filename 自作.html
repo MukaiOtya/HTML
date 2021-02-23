@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>フォームの利用</title>
+	<script>
+		function stdWeight(myForm) {
+			var height, weight;
+			height = Number(myForm.height.value);
+			if (myForm.sex[0].checked) {
+				weight = height * 0.9;
+			} else if (myForm.sex[1].checked) {
+				weight = height * 0.7;
+			}			
+			else if (myForm.sex[2].checked) {
+				weight = height * 0.5;
+			}	
+			else if (myForm.sex[3].checked) {
+				weight = height * 0.2;
+			}	
+			myForm.weight.value = weight;
+		}
+	</script>　
+</head>
+
+<body>
+	<form name="weightForm"><p>
+		10%：<input type="radio" name="sex" checked>
+		30%：<input type="radio" name="sex" >
+		50%：<input type="radio" name="sex" >
+	    80%：<input type="radio" name="sex" ><br>
+		定価：<input type="text" name="height">円<br>
+		<input type="button" value="割引" 
+			name="calc" onclick="stdWeight(this.form)"><br>
+		値段：<input type="text" name="weight">円
+	</p></form>
+</body>
+</html>
